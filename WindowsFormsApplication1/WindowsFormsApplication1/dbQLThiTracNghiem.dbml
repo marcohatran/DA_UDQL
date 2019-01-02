@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TestManagement" Class="dbQLThiTracNghiemDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-D5L34VM\SQLEXPRESS;Initial Catalog=TestManagement;Integrated Security=True" SettingsObjectName="WindowsFormsApplication1.Properties.Settings" SettingsPropertyName="TestManagementConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="idAccount" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="role" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Test_Examination" Member="Test_Examinations">
+    <Type Name="Test_Examination">
+      <Column Name="idExamination" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idTest" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AccountRequest" Member="AccountRequests">
+    <Type Name="AccountRequest">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="role" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Admin" Member="Admins">
+    <Type Name="Admin">
+      <Column Name="idAdmin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameAdmin" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="idAccount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Class" Member="Classes">
+    <Type Name="Class">
+      <Column Name="className" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="grade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Examination" Member="Examinations">
+    <Type Name="Examination">
+      <Column Name="idExamination" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameExamination" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="startTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="time" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="countStudent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="grade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Question" Member="Questions">
+    <Type Name="Question">
+      <Column Name="idQuestion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="subject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="grade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="question" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="answerA" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerB" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerD" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerTrue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="hardlevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Question_Test" Member="Question_Tests">
+    <Type Name="Question_Test">
+      <Column Name="idTest" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idQuestion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuestionRequest" Member="QuestionRequests">
+    <Type Name="QuestionRequest">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idStudent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="subject" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="grade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="question" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="answerA" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerB" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerD" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="answerTrue" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="hardlevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Result" Member="Results">
+    <Type Name="Result">
+      <Column Name="idExamination" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idStudent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="subject" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="score" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="idStudent" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameStudent" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="class" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="idAccount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Teacher" Member="Teachers">
+    <Type Name="Teacher">
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameTeacher" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
+      <Column Name="class" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="idAccount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Test" Member="Tests">
+    <Type Name="Test">
+      <Column Name="idTest" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameTest" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="time" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="subject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="grade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
